@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
-var bodyParser = require('body-parser')
-var jsonParser = bodyParser.json()
 
-router.post('/',jsonParser, async (req, res) => {
-    console.log("Request")
-    res.status(200).send({req: "Done"})
+router.post('/', async (req, res) => {
+    for(el in req.body){
+        console.log(`${el}: ${req.body[el]}`)
+    }
+    res.status(200).send({response: "Done"})
 })
 
 module.exports = router
